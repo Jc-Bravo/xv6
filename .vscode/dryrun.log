@@ -1,0 +1,354 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/jacob/OS/GIT/XV6/xv6'
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pic -O -nostdinc -I. -c bootmain.c
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pic -nostdinc -I. -c bootasm.S
+ld -m    elf_i386 -N -e start -Ttext 0x7C00 -o bootblock.o bootasm.o bootmain.o
+objdump -S bootblock.o > bootblock.asm
+objcopy -S -O binary -j .text bootblock.o bootblock
+./sign.pl bootblock
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o sound.o sound.c
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o bio.o bio.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o console.o console.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o exec.o exec.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o file.o file.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o fs.o fs.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o ide.o ide.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o ioapic.o ioapic.c
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o kalloc.o kalloc.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o kbd.o kbd.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o lapic.o lapic.c
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o log.o log.c
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o main.o main.c
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o mp.o mp.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o picirq.o picirq.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o pipe.o pipe.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o proc.o proc.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o spinlock.o spinlock.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o string.o string.c
+gcc -m32 -gdwarf-2 -Wa,-divide   -c -o swtch.o swtch.S
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o sysaudio.o sysaudio.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o syscall.o syscall.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o sysfile.o sysfile.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o sysproc.o sysproc.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o timer.o timer.c
+gcc -m32 -gdwarf-2 -Wa,-divide   -c -o trapasm.o trapasm.S
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o trap.o trap.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o uart.o uart.c
+ 
+perl vectors.pl > vectors.S
+gcc -m32 -gdwarf-2 -Wa,-divide   -c -o vectors.o vectors.S
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o vm.o vm.c
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o mouse.o mouse.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o window.o window.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o syswindow.o syswindow.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o message.o message.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o vesamode.o vesamode.c
+gcc -m32 -gdwarf-2 -Wa,-divide   -c -o entry.o entry.S
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pic -nostdinc -I. -c entryother.S
+ld -m    elf_i386 -N -e start -Ttext 0x7000 -o bootblockother.o entryother.o
+objcopy -S -O binary -j .text bootblockother.o entryother
+objdump -S bootblockother.o > entryother.asm
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector -nostdinc -I. -c initcode.S
+ld -m    elf_i386 -N -e start -Ttext 0 -o initcode.out initcode.o
+objcopy -S -O binary initcode.out initcode
+objdump -S initcode.o > initcode.asm
+ 
+ld -m    elf_i386 -T kernel.ld -o kernel entry.o sound.o bio.o console.o exec.o file.o fs.o ide.o ioapic.o kalloc.o kbd.o lapic.o log.o main.o mp.o picirq.o pipe.o proc.o spinlock.o string.o swtch.o sysaudio.o syscall.o sysfile.o sysproc.o timer.o trapasm.o trap.o uart.o vectors.o vm.o mouse.o window.o syswindow.o message.o vesamode.o  -b binary initcode entryother
+objdump -S kernel > kernel.asm
+objdump -t kernel | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > kernel.sym
+gcc -Wall -o mkfs mkfs.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o ulib.o ulib.c
+gcc -m32 -gdwarf-2 -Wa,-divide   -c -o usys.o usys.S
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o printf.o printf.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o umalloc.o umalloc.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o math.o math.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o common.o common.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o huffman.o huffman.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o decodemp3.o decodemp3.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o cat.o cat.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _cat cat.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _cat > cat.asm
+objdump -t _cat | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > cat.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o echo.o echo.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _echo echo.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _echo > echo.asm
+objdump -t _echo | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > echo.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o forktest.o forktest.c
+ 
+# forktest has less library code linked in - needs to be small
+# in order to be able to max out the proc table.
+ld -m    elf_i386 -N -e main -Ttext 0 -o _forktest forktest.o ulib.o usys.o
+objdump -S _forktest > forktest.asm
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o grep.o grep.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _grep grep.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _grep > grep.asm
+objdump -t _grep | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > grep.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o init.o init.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _init init.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _init > init.asm
+objdump -t _init | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > init.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o kill.o kill.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _kill kill.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _kill > kill.asm
+objdump -t _kill | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > kill.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o ln.o ln.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _ln ln.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _ln > ln.asm
+objdump -t _ln | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > ln.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o ls.o ls.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _ls ls.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _ls > ls.asm
+objdump -t _ls | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > ls.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o pause.o pause.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _pause pause.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _pause > pause.asm
+objdump -t _pause | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > pause.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o decode.o decode.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _decode decode.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _decode > decode.asm
+objdump -t _decode | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > decode.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o mkdir.o mkdir.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _mkdir mkdir.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _mkdir > mkdir.asm
+objdump -t _mkdir | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > mkdir.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o playmusic.o playmusic.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o context.o context.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o drawingAPI.o drawingAPI.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o bitmap.o bitmap.c
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o clickable.o clickable.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _playmusic playmusic.o context.o drawingAPI.o bitmap.o clickable.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _playmusic > .asm
+objdump -t _playmusic | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > .sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o play.o play.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _play play.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _play > play.asm
+objdump -t _play | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > play.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o playmp3.o playmp3.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _playmp3 playmp3.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _playmp3 > playmp3.asm
+objdump -t _playmp3 | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > playmp3.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o mp3dec.o mp3dec.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _mp3dec mp3dec.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _mp3dec > mp3dec.asm
+objdump -t _mp3dec | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > mp3dec.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o rm.o rm.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _rm rm.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _rm > rm.asm
+objdump -t _rm | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > rm.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o sh.o sh.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _sh sh.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _sh > sh.asm
+objdump -t _sh | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > sh.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o stressfs.o stressfs.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _stressfs stressfs.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _stressfs > stressfs.asm
+objdump -t _stressfs | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > stressfs.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o usertests.o usertests.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _usertests usertests.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _usertests > usertests.asm
+objdump -t _usertests | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > usertests.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o wc.o wc.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _wc wc.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _wc > wc.asm
+objdump -t _wc | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > wc.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o zombie.o zombie.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _zombie zombie.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _zombie > zombie.asm
+objdump -t _zombie | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > zombie.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o desktop.o desktop.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _desktop desktop.o context.o drawingAPI.o bitmap.o clickable.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _desktop > .asm
+ 
+objdump -t _desktop | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > .sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o shell_gui.o shell_gui.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _shell_gui shell_gui.o context.o drawingAPI.o bitmap.o clickable.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _shell_gui > .asm
+objdump -t _shell_gui | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > .sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o shell_sh.o shell_sh.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _shell_sh shell_sh.o context.o drawingAPI.o bitmap.o clickable.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _shell_sh > .asm
+objdump -t _shell_sh | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > .sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o finder.o finder.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _finder finder.o context.o drawingAPI.o bitmap.o clickable.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _finder > .asm
+objdump -t _finder | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > .sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o txtEditor_gui.o txtEditor_gui.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _txtEditor_gui txtEditor_gui.o context.o drawingAPI.o bitmap.o clickable.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _txtEditor_gui > .asm
+objdump -t _txtEditor_gui | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > .sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o picviewer.o picviewer.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _picviewer picviewer.o context.o drawingAPI.o bitmap.o clickable.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _picviewer > .asm
+objdump -t _picviewer | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > .sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o touch.o touch.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _touch touch.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _touch > touch.asm
+objdump -t _touch | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > touch.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o uptime.o uptime.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _uptime uptime.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _uptime > uptime.asm
+objdump -t _uptime | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > uptime.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o cp.o cp.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _cp cp.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _cp > cp.asm
+objdump -t _cp | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > cp.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o editor.o editor.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _editor editor.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _editor > editor.asm
+objdump -t _editor | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > editor.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o mv.o mv.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _mv mv.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _mv > mv.asm
+objdump -t _mv | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > mv.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o ren.o ren.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _ren ren.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _ren > ren.asm
+objdump -t _ren | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > ren.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o splice.o splice.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _splice splice.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _splice > splice.asm
+objdump -t _splice | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > splice.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o cal.o cal.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _cal cal.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _cal > cal.asm
+objdump -t _cal | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > cal.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o shutdown.o shutdown.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _shutdown shutdown.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _shutdown > shutdown.asm
+objdump -t _shutdown | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > shutdown.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o reboot.o reboot.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _reboot reboot.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _reboot > reboot.asm
+objdump -t _reboot | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > reboot.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o clear.o clear.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _clear clear.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _clear > clear.asm
+objdump -t _clear | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > clear.sym
+ 
+gcc -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -Wall -MD -gdwarf-2 -m32 -fno-omit-frame-pointer -fno-stack-protector   -c -o vim.o vim.c
+ 
+ld -m    elf_i386 -N -e main -Ttext 0 -o _vim vim.o ulib.o usys.o printf.o umalloc.o math.o common.o huffman.o decodemp3.o
+objdump -S _vim > vim.asm
+objdump -t _vim | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$/d' > vim.sym
+ 
+./mkfs fs.img README _cat _echo _forktest _grep _init _kill _ln _ls _pause _decode _mkdir _playmusic _play _playmp3 _mp3dec _rm _sh _stressfs _usertests _wc _zombie _desktop _shell_gui _shell_sh _finder _txtEditor_gui _picviewer _touch _uptime _cp _editor _mv _ren _splice _cal _shutdown _reboot _clear _vim  hankaku.txt cty.txt HZK16.fnt close.bmp foldericon.bmp play.bmp pause.bmp viewingmode1.bmp viewingmode2.bmp createfile.bmp createfolder.bmp up.bmp gamecenter.bmp folder_icon_big.bmp folder_icon_small.bmp file_icon_big.bmp file_icon_small.bmp bg.bmp music.bmp notes.bmp setting.bmp trash.bmp qian.wav test.wav in.mp3 rollup.bmp rolldown.bmp copy.bmp cut.bmp paste.bmp search.bmp rename.bmp up1.bmp down.bmp save.bmp
+dd if=/dev/zero of=xv6.img count=120000
+dd if=bootblock of=xv6.img conv=notrunc
+dd if=kernel of=xv6.img seek=1 conv=notrunc
+make: Leaving directory '/home/jacob/OS/GIT/XV6/xv6'
+ 
